@@ -1,2 +1,4 @@
 1. ⌈(a+b)/x⌉≤⌈a/x⌉+⌈b/x⌉
    problems based on theorem : https://codeforces.com/contest/1471/problem/A
+2. Never use inbuilt ceil function as there is implicit conversion float value. So, instead use :- (n+k-1)/k
+   
