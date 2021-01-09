@@ -1,0 +1,90 @@
+1. Information content of received data is defined as I_{data} = \log_2(1/p_{data}) 
+where p_{data} is the probability of receiving the data.
+
+Using this information, answer the next few questions.  
+An unfair coin in which probability of obtaining TAILS is three times the probability of obtaining HEADS is tossed. 
+How much information is received upon learning the outcome is HEADS?
+2. Entropy can be defined as the expected value of information content.
+For finite possibilities it can be written as  E = \sum_{over \ all \ possibilities \ of \ data} I_{data} *  p_{data}
+Compute the entropy of a fair 4-sided dice roll?
+3. How many ways can we color the above tree using colors black and white such that B is colored white and A is colored
+black? Two ways are different if at least one of the nodes are colored differently. 
+4. John is watching a 60 second video. He watched the first 20 seconds of the video at 1.25x, the next 20 seconds at 2x, 
+and the last 20 seconds at 1x? What is the time taken to finish watching the video? 
+5. Consider an analog block which copies input to the output.Since the block is inexpensive it can produce up to 1% error.2 such blocks are 
+concatenated to form an extended block. What is the smallest output you may get if an input of 0.5 is passed through the extended block? Give
+answer correct up to 5 decimal places.
+6. Given an arbitrary Binary Search Tree, what is the worst case time complexity to find the path such that the sum of values of the nodes on
+that path is maximum. All the node values are non-negative.
+7. Given a balanced Binary Search Tree, what is the best upper bound to find the path such that the sum of values of the nodes on that path is 
+maximum. All the node values are non-negative 
+8. To perform a BFS on a graph with n nodes, if we replace the Queue with the Priority Queue (implemented as a binary max/min heap) and perform 
+the BFS then the run time complexity will increase by the factor of - 
+9.  There is a sorted array of n positive distinct integers. Now Alice chooses a sub array and reverse it and he performs this operation K 
+number of times. And now Bob asks the chef to find the index of value P. Which of the following is the best algorithm to find the index of P?  
+(Correctness takes priority over efficiency)
+10.  What is the expected number of inversions in a permutation of first n natural numbers? 
+11. What is the sum of difference of maximum and minimum element of all permutations of first n natural numbers? 
+12. If LCM if two numbers a and b is a^{\frac{1}{3}} * b^{\frac{2}{3}}
+. Then their GCD must be 
+13. If we use Modular Exponentiation algorithm to compute x^y in recursive way then the space complexity of the algorithms will be, 
+14. What is the number of permutations of the first n integers such that "n" occurs before "1"?
+15. The runtime complexity of the following for loop will be
+
+      for (int i = 0; i < 4 * n; i += n / 2);
+
+16.  We know if we use Priority Queue STL then the top of the queue is the maximum element, but can we use Priority Queue STL to 
+get the minimum element too? (Answer "0" for no and "1" for yes).
+17. By using only Priority Queues from STL can we get the median of n elements in \mathcal{O}(n \log n)? (Answer 0 for no and 1 for yes)
+18.  If GCD(a, b) = 2 then which of the following statement is true, 
+19. The runtime complexity of the following for loop will be -
+
+for (int i = 0; i * i < n * n * n; i += n);
+
+Ans
+1. 2
+->log2(1/(1/4)) = log2(4) = 2 [According to definition] 
+2. 2
+->¼ log2(1/(1/4)) + ¼ log2(1/(1/4)) + ¼ log2(1/(1/4)) + ¼ log2(1/(1/4)) = 2
+3. 32
+->Fixing the colors of nodes A and B, we have two options for each of the remaining 5 nodes. Number of ways = 2^5 = 32 
+4. 46
+-> 20/1.25 + 10 + 20 = 46s 
+5. 0.49005
+->If the input is x, the smallest output is 0.99x if only one block is present. If another block is present, this output (= 0.99x)
+becomes 0.99*0.99x. Hence, smallest value after 2 blocks = 0.99*0.99*0.5 
+6. O(n)
+->As it’s said the BST is not balanced so in the worst case the BST is like a line structure that for each node it has only one child 
+so we have only one path and we need to go through that. 
+7. O(logn)
+->As it’s said the BST is balanced so for each node we will go right child if it has otherwise left child, so we can restrict the path only 
+one way, so path len = height of BST = logN 
+8. O(logn)
+->As in priority queue insert and pop take logN so it will increase the time complexity by that. [eg. in a queue all operations happen in
+constant time complexity O(1)]. 
+9. For K = 0: Binary Search
+For K >= 1: Linear Search 
+->The array need not be uni modal even for K = 1, so ternary search cannot be used.
+10.  n * (n - 1) / 4 
+->By symmetry, the number of inversions is equal to the number of anti-inversions. The sum of both must be n * (n - 1) / 2. 
+By linearity of expectation the answer must be A. 
+11.  n! * (n - 1) 
+The maximum and minimum elements of any permutation of first n natural numbers are n and 1, so the total sum is n! * (n - 1). 
+12. a^{\frac{2}{3}} * b^{\frac{1}{3}}
+-> LCM * GCD = a * b, so GCD = a^(1 - 1 / 3) * b^(1 - 2 / 3) = a^(2 / 3) * b^(1 / 3) 
+13. O(logy)
+-> logY space is used as stack space will be used as it’s a recursive implementation as mentioned in the statement above 
+14. n!/2
+-> number of pairs (i, j) [i < j] such that a[i] = n, a[j] = 1 == number of pairs (i, j) [i < j] such that a[i] = 1, a[j] = n
+, So number of valid pairs will be n! / 2. 
+15. O(1)
+->the number of iterations will be 8. So the runtime complexity will be O(1) 
+16. 1
+-> Instead of inserting a value x we’ll insert -x and the minimum element will be -q.top(), we can also change the compare function.
+17. 1
+->We can maintain the median using 2 priority queues. One max and one min. For more details refer https://stackoverflow.com/questions
+/28846065/calculate-median-using-priority-queues
+18.  (a + b) is divisible by 2 but not necessarily divisible by 4
+->if a = 2, b = 8 then A will fail, C will fail, D will also fail. The only valid option is B.
+19. o(sqrt(N))
+-> the number of iterations to cover n^3/2 is sqrt(n), So the runtime complexity is O(sqrt(n)). 
